@@ -202,22 +202,23 @@ class NeuralNetwork2:
 structure = '4'
 N=100
 learning_rate=0.01
-import time
-for p in [30,70]:
-    acc_p=[]   
-    for i in range(5):
-        time1=time.time()
-        if structure == '5':
-            net = NeuralNetwork2([784,N,N,N,10],(p))
-            print("validation",np.shape(net.xi1[1]))
-        if structure == '4':
-            net = NeuralNetwork2([784,N,N,10],(p))
-            print("validation",np.shape(net.xi1[1]))
-        acc1=net.SGD(100,200,learning_rate,relu,drelu)
-        acc_p.append(acc1*1)
-        print("accuracy = ",np.average(np.array(acc_p)[:,-1]))
-        time2=time.time()
-        print(time2-time1)
+if __name__ == '__main__':
+    import time
+    for p in [30,70]:
+        acc_p=[]   
+        for i in range(5):
+            time1=time.time()
+            if structure == '5':
+                net = NeuralNetwork2([784,N,N,N,10],(p))
+                print("validation",np.shape(net.xi1[1]))
+            if structure == '4':
+                net = NeuralNetwork2([784,N,N,10],(p))
+                print("validation",np.shape(net.xi1[1]))
+            acc1=net.SGD(100,200,learning_rate,relu,drelu)
+            acc_p.append(acc1*1)
+            print("accuracy = ",np.average(np.array(acc_p)[:,-1]))
+            time2=time.time()
+            print(time2-time1)
 
 
 # In[ ]:
