@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ## associative
-
-# In[5]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy import log as ln
@@ -22,9 +14,7 @@ from functions import relu,drelu,softmax,divi_,mini_batch_generate,sigmoid,dsigm
 from optimizers import Adam
 from model_save import model_save
 
-
-# In[6]:
-
+## Mean-field ODE
 
 @jit
 def I2_error(P,Q,M):
@@ -199,9 +189,6 @@ def update(P1,Q1,M1,xi,sigma,d,eta,epoch):
     return err_all,P,M,Q
 
 
-# In[7]:
-
-
 # fix teacher
 from scipy import special
 from sklearn.preprocessing import normalize
@@ -219,9 +206,8 @@ def set_orth_teacher(sizes,patterns,indi):
         return  [((np.sqrt(sizes[l])**(0.5))*np.random.normal(0,sigma,size = (int(patterns[l]),1))) for l in range(1)]
 
 
-# ## Toy model -- Associative
+# ## Toy model -- Simulation
 
-# In[8]:
 
 
 from scipy import special
@@ -284,7 +270,6 @@ class Teacher:
         return Test_set,Test_label
 
 
-# In[9]:
 
 
 def lin_generate(p):
@@ -417,7 +402,6 @@ class Toymodel:
         return err1,acc1_,numb,m_all
 
 
-# In[10]:
 
 
 if __name__ == '__main__':
@@ -444,7 +428,6 @@ if __name__ == '__main__':
         print(err1[-1])
 
 
-# In[ ]:
 
 
 
