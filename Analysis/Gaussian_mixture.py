@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ## Mixed Gaussan data 
-
-# In[2]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy import log as ln
@@ -48,10 +40,7 @@ train_data,train_label = data_generating(100000)
 test_data,test_label = data_generating(10000)
 
 
-# # Basic model
-
-# In[3]:
-
+# # Basic model (Updating the weight matrix)
 
 class BPNetwork:
     def __init__(self,sizes):
@@ -101,8 +90,6 @@ class BPNetwork:
     
     
     def backprop(self,x,y,activate,dactivate,back=True):
-        #x:输入：784*batch_size
-        #y:输入标签：10*batch_size
         tri=[]
         nabla_mess = [np.zeros(mess.shape) for mess in self.messes]
         out,zm=self.w_feedforward(x,activate,back=True)
@@ -155,27 +142,7 @@ class BPNetwork:
 # test_error=net1.SGD(10,10,relu,drelu,0.01)
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# ## toymodel
-
-# In[4]:
+# ## toymodel(MDL)
 
 
 def sig_mat(sig):
@@ -310,7 +277,6 @@ for i in range(5):
     err_tes_all.append(err2*1)
 
 
-# In[7]:
 
 
 ## functions to plot the Figure(1d).
@@ -362,22 +328,9 @@ def fit_merge(x,y,z):
     return X[0,0],X[1,0],X[2,0]
 
 
-# In[9]:
 
 
-#Analyze the data
-
-num=100
-example_data = data_generating(num)
-cla = int(num/4)
-test_h1=(net.feedforward(example_data[0],relu,back=False))
-# test_h1=(net.feedforward(test_data,relu,back=False))
-k=0
-zero = 0
-up = 0
-down = 0
-data_new = []
-
+#Plot figure(1c)
 
 num=100
 example_data = data_generating(num)
@@ -404,7 +357,6 @@ print(up)
 print(down)
 example_data1x = net.xi2[0]@example_data[0]
 example_data2x = sig_mat(net.Sigma[0])@net.xi2[0]@example_data[0]
-##picture c
 # example_data3x = relu(net.w_sy[1]@(relu(net.w_sy[0]@example_data[0][:,0:2*cla])))
 # example_data3y = relu(net.w_sy[1]@(relu(net.w_sy[0]@example_data[0][:,2*cla:4*cla])))
 example_data3x = (net.w_sy[0]@example_data[0])
