@@ -182,25 +182,21 @@ class NeuralNetwork:
 ##p=30,0.005,1e-3
 ##p=30:0.005,1e-2
 ##大N用0.003
-import time
-for lr in [0.005]:
-    for N in [100]:
-        print("lr=",lr)
-        print("N=", N)
-        acc_p=[]   
-        for i in range(1):
-            time1=time.time()
-            net = NeuralNetwork([784,N,N,10])
-            acc1=net.SGD(100,150,lr,relu,drelu)
-            acc_p.append(acc1*1)
-            time2=time.time()
-            print(time2-time1)
-        print("accuracy = ",np.average(np.array(acc_p)[:,-1]))
-#         model_save('nscaledata/model/new/7hidp'+str(p)+'hopsimple'+str(i+1)+'.pickle').model_s(net)
-#     np.save('nscaledata/7hidbatch100simple_p='+str(p)+'data2',acc_p,allow_pickle=True)
-
-
-# In[ ]:
+if __name__ == '__main__':
+    import time
+    for lr in [0.005]:
+        for N in [100]:
+            print("lr=",lr)
+            print("N=", N)
+            acc_p=[]   
+            for i in range(1):
+                time1=time.time()
+                net = NeuralNetwork([784,N,N,10])
+                acc1=net.SGD(100,150,lr,relu,drelu)
+                acc_p.append(acc1*1)
+                time2=time.time()
+                print(time2-time1)
+            print("accuracy = ",np.average(np.array(acc_p)[:,-1]))
 
 
 
