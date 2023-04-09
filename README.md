@@ -3,8 +3,8 @@ Code for paper [Emergence of hierarchical modes from deep learning](https://arxi
 # Requirements
 Python 3.8
 # Some instructions:
-- The training folder contains the models used in the main text and supplementary materials, including the 1L1P MDL, 1L2P MDL, SVD, and two-factor low-rank decomposition, two training datasets are considered (note that you have to upload the datasets yourself).
-- The analysis folder contains the mean-field analysis of MDL (online dynamics) and the Gaussian-mixture task of MDL (1L2P) which generates the Figure 1 in the main text. 
+- Each folder contains the relevant .py files for the figures in the main text, and the dataset folder is empty(due to the large size of data files), so you have to load the dataset yourself.
+- Fig3 folder contains the .ipynb file for the figure, and the models are the pre-saved ones using model_save package in the Utils folder. 
 # Acknowledgement
 [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/).
 # Citation
